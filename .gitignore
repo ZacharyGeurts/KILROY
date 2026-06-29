@@ -30,4 +30,4 @@ __pycache__/
 memtest86+_*.deb
 
 # Vendor limine git internals
-boot/grok/vendor/limine/.git/
+boot/grok/vendor/limine/.git/.github/workflows/
