@@ -3,9 +3,11 @@
 ![Release](https://img.shields.io/badge/release-1.0.0_Taco-green)
 ![ABI](https://img.shields.io/badge/ABI-kilroy--field--1.0-blue)
 ![Grok16](https://img.shields.io/badge/Grok16-5.0.1-gold)
-![AmmoOS](https://img.shields.io/badge/AmmoOS-1.9.9h-purple)
+![AmmoOS](https://img.shields.io/badge/AmmoOS-2.0.0--beta3-purple)
 
 **Field OS — Linux-compatible. Not Linux.**
+
+**Stack nav:** [AmmoOS STACK-NAV](https://github.com/ZacharyGeurts/AmmoOS/blob/main/STACK-NAV.md) · [Profile hub](https://zacharygeurts.github.io/ZacharyGeurts/stack.html) · [Queen](https://github.com/ZacharyGeurts/Queen) · [ZNetwork](https://github.com/ZacharyGeurts/ZNetwork)
 
 KILROY is the **Field** operating system: syscall-scheduled physics (Phi, Thermo, Flow, FCC), native integrity, and AMOURANTHRTX field fabric — with **full Linux userspace compatibility**. You run glibc apps, shell scripts, and containers unchanged. Underneath is Field, not a Linux distribution.
 
@@ -21,7 +23,7 @@ The **compat substrate** (linux-7.1.1 lineage) is a boot foundation — like fir
 
 ## Stack (2026)
 
-KILROY owns syscall truth under **Hardware → NEXUS C2 → ZNetwork → Queen → AmmoOS**. Pairs **Grok16 5.0.1** + **AmmoOS 1.9.9h**. See `docs/STACK-INTEGRATION.md`.
+KILROY owns syscall truth under **Hardware → NEXUS C2 → ZNetwork → Queen → AmmoOS**. Pairs **Grok16 5.1.0** + **AmmoOS 2.0.0-beta3**. See `docs/STACK-INTEGRATION.md`.
 
 ## Quick launch
 
