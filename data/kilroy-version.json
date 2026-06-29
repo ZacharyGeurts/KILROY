@@ -1,0 +1,47 @@
+{
+  "schema": "kilroy-version/v1",
+  "product": "KILROY",
+  "version": "1.0.0",
+  "tag": "v1.0.0",
+  "codename": "Taco",
+  "abi": "kilroy-field-1.0",
+  "layout": 9,
+  "substrate": "linux-7.1.1",
+  "localversion": "-kilroy",
+  "release_model": "source_overlay_plus_platform_bins",
+  "statement": "Field OS kernel — Linux-compatible, not Linux. Field Die owns syscall truth; compat substrate is boot foundation only.",
+  "stack_pairing": {
+    "grok16": "5.0.1",
+    "ammoos": "1.9.9h",
+    "ammoos_release": "Grok Expert Review",
+    "queen": "secured shell — AmmoOS inside Queen",
+    "znetwork": "loopback sovereignty — operator is 127.0.0.1",
+    "stack_layers": "hardware → nexus_c2 → znetwork → queen → ammoos"
+  },
+  "compiler": {
+    "primary": "Grok16 g16 @ 16.2.0",
+    "profile": "field_physics",
+    "belt": "belt_2_0",
+    "fieldc": "FIELDC v4.0.2026 — .fld guest modules"
+  },
+  "surfaces": {
+    "proc": "/proc/kilroy_field",
+    "chardev": "/dev/kilroy_field",
+    "underlay": "http://127.0.0.1:9477/underlay-f9?sector=kilroy",
+    "tristate": "scripts/tristate-virtual-kilroy-field.sh",
+    "queen_api": "http://127.0.0.1:9481/api/kilroy"
+  },
+  "native_programs": [
+    "userspace/kilroy-status/kilroy-status.c",
+    "userspace/kilroy-ioctl-test/kilroy-ioctl-test.c",
+    "scripts/build-kilroy.sh",
+    "scripts/grok-mkimage.sh",
+    "scripts/qemu-boot-kilroy.sh"
+  ],
+  "release_gates": [
+    "scripts/check-field-stack.sh",
+    "scripts/test-units.sh",
+    "scripts/test-ioctl-smoke.sh",
+    "Grok16/scripts/grok16-verify-ammoos.sh"
+  ]
+}

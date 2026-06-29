@@ -1,0 +1,10 @@
+KILROY Field OS 1.0.0
+codename=Taco
+abi=kilroy-field-1.0
+layout=9
+substrate=linux-7.1.1
+localversion=-kilroy
+identity=Field
+compatible=Linux-POSIX
+grok16_pair=5.0.1
+ammoos_pair=1.9.9h
