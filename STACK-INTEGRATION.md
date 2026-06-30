@@ -1,50 +1,40 @@
-# KILROY stack integration (2026-06-29)
+# KILROY stack integration (v2 — 2026-06-30)
 
-KILROY is layer zero syscall truth. Everything above rides on Field Die classification.
+KILROY is the **PC core** — syscall truth, network lane (ZNetwork absorbed), loopback authority.
 
-## Stack layers (AmmoOS doctrine)
+## Stack layers (rewritten)
 
-| Order | Layer | KILROY role |
-|-------|-------|-------------|
-| 0 | Hardware | Witness — no breaks, no SPI flash |
-| 1 | NEXUS C2 | Tristate underlay-f9, threat panel hooks |
-| 2 | ZNetwork | Loopback pipe — operator is `127.0.0.1` |
-| 3 | Queen | Secured browser shell |
-| 4 | AmmoOS | Field desktop inside Queen |
+| Order | Layer | Role |
+|-------|-------|------|
+| 0 | Hardware | Witness — no breaks |
+| 1 | NEXUS C2 | Command panel — absorbed into KILROY at runtime |
+| 2 | **KILROY** | PC core — ZNetwork absorbed, defense, loopback `127.0.0.1` |
+| 3 | **AmmoOS** | Field OS desktop — **AMOURANTHRTX** display backend |
+| 4 | **Queen** | Standalone secured browser — `:9481`, not an AmmoOS container |
 
-Doctrine: AmmoOS `data/field-stack-layer-doctrine.json`
+Doctrine: `AmmoOS/data/field-stack-layer-doctrine.json` (v2)
 
-## Pairing versions
+## Load OS
 
-- **Grok16 5.0.1** — `ammoos` profile, `grok16-verify-ammoos.sh`, smoke chamber
-- **AmmoOS 1.9.9h** — Grok Expert Review, View, Queen rebrand
-- **Kill-Grok-Orphans 1.1.0** — companion watchdog
-
-## KILROY surfaces in the stack
-
-| Surface | URL / path |
-|---------|------------|
-| Underlay Tristate | `http://127.0.0.1:9477/underlay-f9?sector=kilroy` |
-| Queen API | `http://127.0.0.1:9481/api/kilroy` |
-| Field proc | `/proc/kilroy_field/{status,security,stack,power,thermo,flow,cache,direct,ai}` |
-| Chardev | `/dev/kilroy_field` |
-| Virtual field boot | `scripts/tristate-virtual-kilroy-field.sh` |
-
-## Build chain
-
-```
-Field .fld update → gen-field-stack.sh → kilroy-become-substrate.sh → build-kilroy.sh
-Compiler: Grok16 g16 @ belt_2_0 / field_physics
-Recompile rule: field-recompile.sh after every field stack change
+```bash
+cd SG/NewLatest
+./scripts/kilroy-load-os.sh
 ```
 
-## Combinatronic discipline
+Boot order: KILROY core → field stack → AmmoOS desktop (`/field`) → Queen on demand.
 
-AmmoOS pipeline (rebalance → condense → combine → connect → spider) consumes Grok16 `g16-combinatronic-rebalance.py`. KILROY Field Die enforces determinism at the syscall boundary — upstream combinatorics, downstream passthrough.
+## Surfaces
 
-## What we know now
+| Surface | URL |
+|---------|-----|
+| AmmoOS desktop | `http://127.0.0.1:9477/field` |
+| Queen Browser | `http://127.0.0.1:9481/world/browser.html` |
+| KILROY API | `http://127.0.0.1:9481/api/kilroy` |
+| Load OS action | `POST /api/kilroy` `{"action":"load_os"}` |
+| Field proc | `/proc/kilroy_field/*` |
 
-1. **Dual surfaces work** — `:9477/field` browser + Queen RTX native shell
-2. **Grok16 + AmmoOS speak same field language** — verify gate PASS
-3. **Tristate is non-destructive** — guest OS stays substrate until KILROY boot
-4. **Repo hygiene next** — mirror Grok16 tighter structure post-Taco
+## Pairing
+
+- **Grok16 5.2.0**
+- **AmmoOS 2.0.0-beta3.1**
+- **KILROY 1.1.0 Sanctuary**
