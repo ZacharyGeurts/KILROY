@@ -1,68 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-kilroy-surface="github-io-home">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KILROY — AmmoOS manual</title>
-  <meta http-equiv="refresh" content="4;url=https://zacharygeurts.github.io/AmmoOS/architecture.html" />
-  <link rel="canonical" href="https://zacharygeurts.github.io/AmmoOS/architecture.html" />
-  <meta name="description" content="KILROY — canonical docs in AmmoOS manual" />
-  <style>
-.github-chrome-top, .github-chrome-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-  padding: 0.55rem 0.85rem;
-  margin: 0 0 1rem;
-  border-radius: 8px;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.35);
-  font-size: 0.92rem;
-}
-.github-chrome-bottom { margin: 2rem 0 0; }
-.github-chrome-top a.github-repo-primary,
-.github-chrome-bottom a.github-repo-primary {
-  font-weight: 700;
-  color: #4ade80;
-  text-decoration: none;
-}
-.github-chrome-top a.github-repo-primary:hover,
-.github-chrome-bottom a.github-repo-primary:hover { text-decoration: underline; }
-.github-chrome-links a { margin-right: 0.75rem; color: #94a3b8; }
-
-    body { font-family: system-ui, sans-serif; max-width: 46rem; margin: 0 auto; padding: 1rem 1.25rem 2rem; background: #0a0c12; color: #e8edf7; }
-    .lead { border-left: 3px solid #22c55e; padding-left: 1rem; margin: 1.25rem 0; }
-    .cta { display: inline-block; margin: 0.5rem 0.75rem 0.5rem 0; padding: 0.55rem 1rem; border-radius: 8px; background: #14532d; color: #bbf7d0; text-decoration: none; font-weight: 600; }
-    .cta:hover { background: #166534; }
-    .meta { color: #94a3b8; font-size: 0.92rem; }
-  </style>
+  <title>KILROY — Field OS · spin up yours</title>
+  <meta name="description" content="KILROY Field OS — Linux-compatible, not Linux. Spin up your own field node. Always on at zacharygeurts.github.io/KILROY" />
+  <link rel="canonical" href="https://zacharygeurts.github.io/KILROY/" />
+  <link rel="stylesheet" href="kilroy.css" />
 </head>
 <body>
-<div class="github-chrome-top" role="navigation" aria-label="Stack navigation">
-  <a class="github-repo-primary" href="https://github.com/ZacharyGeurts/AmmoOS">→ Code: ZacharyGeurts/AmmoOS</a>
-  <span class="github-chrome-links">
-    <a href="https://github.com/ZacharyGeurts/KILROY">ZacharyGeurts/KILROY</a>
-    <a href="https://zacharygeurts.github.io/AmmoOS/">AmmoOS manual</a>
-    <a href="https://zacharygeurts.github.io/ZacharyGeurts/stack.html">Stack hub</a>
-    <a href="https://github.com/ZacharyGeurts/AmmoOS/releases/tag/v2.0.0-beta3">Release v2.0.0-beta3</a>
-  </span>
-</div>
+  <div class="wrap">
+    <header class="topbar" role="navigation">
+      <a class="repo" href="https://github.com/ZacharyGeurts/KILROY">ZacharyGeurts/KILROY</a>
+      <span class="links">
+        <a href="releases.html">Releases</a>
+        <a href="https://github.com/ZacharyGeurts/KILROY/wiki">Wiki</a>
+        <a href="https://zacharygeurts.github.io/ZacharyGeurts/stack.html">Stack</a>
+        <a href="https://github.com/ZacharyGeurts/AmmoOS">AmmoOS</a>
+      </span>
+    </header>
 
-  <h1>KILROY</h1>
-  <p class="lead">Field boot kernel — stack architecture in AmmoOS manual</p>
-  <p class="meta">This repo&apos;s GitHub Pages is a <strong>redirect hub</strong>. <strong>Source code</strong> for the full stack lives in <a href="https://github.com/ZacharyGeurts/AmmoOS">AmmoOS</a>. Documentation is maintained once in the <a href="https://zacharygeurts.github.io/AmmoOS/">AmmoOS manual</a> · 2.0.0-beta3.</p>
-  <p>
-    <a class="cta" href="https://github.com/ZacharyGeurts/AmmoOS">Clone AmmoOS (canonical code)</a>
-    <a class="cta" href="https://zacharygeurts.github.io/AmmoOS/architecture.html">Open manual → architecture.html</a>
-    <a class="cta" href="https://zacharygeurts.github.io/AmmoOS/stack-hub.html">Stack hub</a>
-  </p>
-  <p class="meta">Auto-redirecting in 4 seconds…</p>
-<div class="github-chrome-bottom" role="contentinfo">
-  <a class="github-repo-primary" href="https://github.com/ZacharyGeurts/AmmoOS">→ Code: ZacharyGeurts/AmmoOS</a>
-  <span class="github-chrome-links"><a href="https://github.com/ZacharyGeurts/KILROY">ZacharyGeurts/KILROY</a> · ships in AmmoOS · 2.0.0-beta3</span>
-</div>
+    <main>
+      <section class="hero" aria-label="KILROY home">
+        <p class="eyebrow">Field Die · syscall truth · always on</p>
+        <h1>KILROY</h1>
+        <p class="motto">
+          Field OS — Linux-compatible, not Linux. Everyone spins up their own sanctuary on
+          <code>127.0.0.1</code>. This page is the live front door.
+        </p>
+        <div class="pills" aria-label="Stack">
+          <span class="pill">KILROY 1.0.0 Taco</span>
+          <span class="pill">Grok boot</span>
+          <span class="pill">AmmoOS</span>
+          <span class="pill pill--rose">Queen</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="#spin-up">Spin up yours</a>
+          <a class="btn" href="https://github.com/ZacharyGeurts/KILROY">Clone on GitHub</a>
+          <a class="btn" href="releases.html">Download releases</a>
+        </div>
+        <p class="status-line" id="local-status">Checking your loopback field stack…</p>
+      </section>
 
+      <section id="spin-up">
+        <h2>Spin up your KILROY</h2>
+        <div class="panel spin-grid">
+          <div>
+            <label for="spin-profile">Path</label>
+            <select id="spin-profile">
+              <option value="quick">Quick QEMU boot</option>
+              <option value="full">Full AmmoOS stack</option>
+              <option value="release">Release tarball</option>
+            </select>
+          </div>
+          <div>
+            <label for="spin-platform">Platform (release path)</label>
+            <select id="spin-platform">
+              <option value="x86_64">x86_64</option>
+              <option value="aarch64">aarch64</option>
+              <option value="i386">i386</option>
+              <option value="riscv64">riscv64</option>
+              <option value="arm">arm</option>
+            </select>
+          </div>
+        </div>
+        <pre class="cmd" id="spin-cmd" aria-label="Spin-up commands"></pre>
+        <div class="cta-row" style="justify-content:flex-start;margin-top:0.75rem">
+          <button type="button" class="btn" id="copy-cmd">Copy commands</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>What you get</h2>
+        <div class="panel">
+          <p><strong>Kernel:</strong> <code>build/bzImage</code> · <code>uname -s</code> → KILROY</p>
+          <p><strong>Boot:</strong> Grok loader (not GRUB) · <code>./scripts/grok-boot-qemu.sh</code></p>
+          <p><strong>Telemetry:</strong> <code>/proc/kilroy_field/status</code></p>
+          <p><strong>Stack:</strong> pairs Grok16 + AmmoOS — see <a href="https://zacharygeurts.github.io/AmmoOS/architecture.html">architecture</a></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Always running here</h2>
+        <div class="panel">
+          <p>
+            This GitHub Pages site is the <strong>main KILROY front door</strong> —
+            <a href="https://zacharygeurts.github.io/KILROY/">zacharygeurts.github.io/KILROY</a>.
+            The <a href="https://github.com/ZacharyGeurts/KILROY">repository README</a> links here first.
+            Releases and SHA-256 tables live on <a href="releases.html">releases.html</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="https://github.com/ZacharyGeurts/KILROY">Code</a> ·
+      <a href="releases.html">Releases</a> ·
+      <a href="https://zacharygeurts.github.io/ZacharyGeurts/stack.html">Stack hub</a> ·
+      <a href="https://github.com/ZacharyGeurts">@ZacharyGeurts</a>
+    </footer>
+  </div>
+  <script src="spin-up.js"></script>
 </body>
 </html>
