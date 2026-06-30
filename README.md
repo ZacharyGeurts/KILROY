@@ -1,6 +1,9 @@
 # KILROY 1.0.0 — Taco
 
+**Live hub (spin up yours):** [**zacharygeurts.github.io/KILROY**](https://zacharygeurts.github.io/KILROY/) — main page, always on, everyone fires up their own field node.
+
 ![Release](https://img.shields.io/badge/release-1.0.0_Taco-green)
+![Pages](https://img.shields.io/badge/Pages-KILROY_hub-3ecf8e)
 ![ABI](https://img.shields.io/badge/ABI-kilroy--field--1.0-blue)
 ![Grok16](https://img.shields.io/badge/Grok16-5.0.1-gold)
 ![AmmoOS](https://img.shields.io/badge/AmmoOS-2.0.0--beta3-purple)
