@@ -1,8 +1,8 @@
-# KILROY 1.0.0 — Taco
+# KILROY 1.1.0 — Sanctuary
 
-**Live hub (spin up yours):** [**zacharygeurts.github.io/KILROY**](https://zacharygeurts.github.io/KILROY/) — main page, always on, everyone fires up their own field node.
+**Live hub (terminal + spin up):** [**zacharygeurts.github.io/KILROY**](https://zacharygeurts.github.io/KILROY/) — interactive KILROY terminal, always on, everyone fires up their own field node at `127.0.0.1`.
 
-![Release](https://img.shields.io/badge/release-1.0.0_Taco-green)
+![Release](https://img.shields.io/badge/release-1.1.0_Sanctuary-green)
 ![Pages](https://img.shields.io/badge/Pages-KILROY_hub-3ecf8e)
 ![ABI](https://img.shields.io/badge/ABI-kilroy--field--1.0-blue)
 ![Grok16](https://img.shields.io/badge/Grok16-5.0.1-gold)
@@ -32,7 +32,7 @@ KILROY owns syscall truth under **Hardware → NEXUS C2 → ZNetwork → Queen �
 
 ```bash
 git clone https://github.com/ZacharyGeurts/KILROY.git
-cd KILROY && git checkout v1.0.0
+cd KILROY && git checkout v1.1.0
 ./scripts/kilroy-become-substrate.sh   # fix Linux → KILROY in compat tree
 ./scripts/test-all.sh
 ./scripts/build-kilroy.sh

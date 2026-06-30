@@ -5,7 +5,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SG_ROOT="${SG_ROOT:-$(cd "$ROOT/.." && pwd)}"
-VERSION="${1:-1.0.0}"
+VERSION="${1:-1.1.0}"
 TAG="v${VERSION}"
 PUSH=0
 shift || true
@@ -128,7 +128,7 @@ gh_release() {
   [[ "$PUSH" -eq 0 ]] && return 0
   command -v gh >/dev/null 2>&1 || return 0
   local assets=("$SRC_TAR" "$PLAT_MD" "$ROOT/data/kilroy-platform-release.json")
-  for a in "$DIST"/kilroy-${VERSION}-linux-gnu-*.tar.gz "$DIST"/kilroy-${VERSION}-bare-elf-*.tar.gz; do
+  for a in "$DIST"/kilroy-${VERSION}-*.tar.gz; do
     [[ -f "$a" ]] && assets+=("$a")
   done
   if gh release view "$TAG" >/dev/null 2>&1; then

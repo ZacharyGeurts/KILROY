@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KILROY — Field OS · spin up yours</title>
-  <meta name="description" content="KILROY Field OS — Linux-compatible, not Linux. Spin up your own field node. Always on at zacharygeurts.github.io/KILROY" />
+  <title>KILROY 1.1.0 Sanctuary — Field OS terminal</title>
+  <meta name="description" content="KILROY Field OS 1.1.0 Sanctuary — interactive terminal, spin up your field node at 127.0.0.1" />
   <link rel="canonical" href="https://zacharygeurts.github.io/KILROY/" />
   <link rel="stylesheet" href="kilroy.css" />
 </head>
@@ -13,33 +13,53 @@
     <header class="topbar" role="navigation">
       <a class="repo" href="https://github.com/ZacharyGeurts/KILROY">ZacharyGeurts/KILROY</a>
       <span class="links">
-        <a href="releases.html">Releases</a>
+        <a href="https://github.com/ZacharyGeurts/KILROY">Code</a>
         <a href="https://github.com/ZacharyGeurts/KILROY/wiki">Wiki</a>
-        <a href="https://zacharygeurts.github.io/ZacharyGeurts/stack.html">Stack</a>
+        <a href="releases.html">Releases</a>
         <a href="https://github.com/ZacharyGeurts/AmmoOS">AmmoOS</a>
       </span>
     </header>
 
     <main>
       <section class="hero" aria-label="KILROY home">
-        <p class="eyebrow">Field Die · syscall truth · always on</p>
+        <p class="eyebrow">Field Die · syscall truth · Field 1 @ 127.0.0.1</p>
         <h1>KILROY</h1>
         <p class="motto">
-          Field OS — Linux-compatible, not Linux. Everyone spins up their own sanctuary on
-          <code>127.0.0.1</code>. This page is the live front door.
+          Field OS — Linux-compatible, not Linux. This page <strong>runs KILROY</strong>:
+          boot the terminal, type <code>spin quick</code>, download releases for your platform.
         </p>
         <div class="pills" aria-label="Stack">
-          <span class="pill">KILROY 1.0.0 Taco</span>
-          <span class="pill">Grok boot</span>
-          <span class="pill">AmmoOS</span>
-          <span class="pill pill--rose">Queen</span>
+          <span class="pill">KILROY 1.1.0 Sanctuary</span>
+          <span class="pill">Grok16 5.1.0</span>
+          <span class="pill">AmmoOS 2.0.0-beta3</span>
+          <span class="pill pill--rose">Field One</span>
         </div>
         <div class="cta-row">
-          <a class="btn btn--primary" href="#spin-up">Spin up yours</a>
+          <a class="btn btn--primary" href="#terminal">Open terminal</a>
           <a class="btn" href="https://github.com/ZacharyGeurts/KILROY">Clone on GitHub</a>
-          <a class="btn" href="releases.html">Download releases</a>
+          <a class="btn" href="releases.html">All platform releases</a>
         </div>
-        <p class="status-line" id="local-status">Checking your loopback field stack…</p>
+        <p class="status-line" id="local-status">Probing loopback field stack…</p>
+      </section>
+
+      <section id="terminal" aria-label="KILROY terminal">
+        <h2>KILROY terminal</h2>
+        <div class="terminal-wrap">
+          <div class="terminal-chrome">
+            <span class="dot dot--r"></span>
+            <span class="dot dot--y"></span>
+            <span class="dot dot--g"></span>
+            <span class="terminal-title">kilroy@127.0.0.1 — Field OS 1.1.0 Sanctuary</span>
+          </div>
+          <div id="kilroy-terminal" class="terminal" tabindex="0">
+            <div id="terminal-output" class="terminal-output" aria-live="polite"></div>
+            <label class="terminal-input-row" for="terminal-input">
+              <input id="terminal-input" type="text" autocomplete="off" spellcheck="false"
+                aria-label="KILROY terminal command" placeholder="" />
+            </label>
+          </div>
+        </div>
+        <p class="terminal-hint">Commands: <code>help</code> · <code>spin quick</code> · <code>spin release x86_64</code> · <code>releases</code> · <code>status</code> · <code>field</code></p>
       </section>
 
       <section id="spin-up">
@@ -54,13 +74,17 @@
             </select>
           </div>
           <div>
-            <label for="spin-platform">Platform (release path)</label>
+            <label for="spin-platform">Platform</label>
             <select id="spin-platform">
-              <option value="x86_64">x86_64</option>
-              <option value="aarch64">aarch64</option>
-              <option value="i386">i386</option>
-              <option value="riscv64">riscv64</option>
-              <option value="arm">arm</option>
+              <option value="x86_64">Linux x86_64</option>
+              <option value="aarch64">Linux aarch64</option>
+              <option value="i386">Linux i386</option>
+              <option value="riscv64">Linux riscv64</option>
+              <option value="arm">Linux arm</option>
+              <option value="darwin_arm64">macOS Apple Silicon</option>
+              <option value="darwin_x64">macOS Intel</option>
+              <option value="win64">Windows x64</option>
+              <option value="android_arm64">Android arm64</option>
             </select>
           </div>
         </div>
@@ -71,23 +95,15 @@
       </section>
 
       <section>
-        <h2>What you get</h2>
-        <div class="panel">
-          <p><strong>Kernel:</strong> <code>build/bzImage</code> · <code>uname -s</code> → KILROY</p>
-          <p><strong>Boot:</strong> Grok loader (not GRUB) · <code>./scripts/grok-boot-qemu.sh</code></p>
-          <p><strong>Telemetry:</strong> <code>/proc/kilroy_field/status</code></p>
-          <p><strong>Stack:</strong> pairs Grok16 + AmmoOS — see <a href="https://zacharygeurts.github.io/AmmoOS/architecture.html">architecture</a></p>
-        </div>
-      </section>
-
-      <section>
-        <h2>Always running here</h2>
+        <h2>Releases — all popular platforms</h2>
         <div class="panel">
           <p>
-            This GitHub Pages site is the <strong>main KILROY front door</strong> —
-            <a href="https://zacharygeurts.github.io/KILROY/">zacharygeurts.github.io/KILROY</a>.
-            The <a href="https://github.com/ZacharyGeurts/KILROY">repository README</a> links here first.
-            Releases and SHA-256 tables live on <a href="releases.html">releases.html</a>.
+            <strong>v1.1.0 Sanctuary</strong> ships source + per-platform packs:
+            Linux (5 arches), bare-elf, macOS, iOS bootstrap, Windows PE, Android NDK.
+          </p>
+          <p>
+            <a href="releases.html">releases.html</a> — SHA-256 tables ·
+            <a href="https://github.com/ZacharyGeurts/KILROY/releases/tag/v1.1.0">GitHub release</a>
           </p>
         </div>
       </section>
@@ -95,11 +111,12 @@
 
     <footer class="footer">
       <a href="https://github.com/ZacharyGeurts/KILROY">Code</a> ·
+      <a href="https://github.com/ZacharyGeurts/KILROY/wiki">Wiki</a> ·
       <a href="releases.html">Releases</a> ·
-      <a href="https://zacharygeurts.github.io/ZacharyGeurts/stack.html">Stack hub</a> ·
       <a href="https://github.com/ZacharyGeurts">@ZacharyGeurts</a>
     </footer>
   </div>
   <script src="spin-up.js"></script>
+  <script src="kilroy-terminal.js"></script>
 </body>
 </html>

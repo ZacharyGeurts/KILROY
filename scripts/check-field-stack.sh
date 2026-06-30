@@ -30,8 +30,8 @@ check_repo "KILROY" "$ROOT" "" || fail=1
 check_repo "Field_Primer" "$SG/Field_Primer" "Field_Primer" || fail=1
 check_repo "Final_Eye" "$SG/Final_Eye" "Final_Eye" || fail=1
 check_repo "World_Redata" "$SG/World_Redata" "World_Redata" || fail=1
-check_repo "AMOURANTHRTX" "$SG/NewLatest/AMOURANTHRTX" "AMOURANTHRTX" || fail=1
-check_repo "Queen" "$SG/NewLatest/Queen" "" || fail=1
+check_repo "AMOURANTHRTX" "${AMOURANTHRTX_ROOT:-$SG/AMOURANTHRTX}" "AMOURANTHRTX" || fail=1
+check_repo "Queen" "${QUEEN_ROOT:-$SG/Queen}" "" || fail=1
 check_repo "Grok16" "${GROK16_ROOT:-$SG/Grok16}" "" || fail=1
 
 for fld in FieldStackCore FieldPrimer FinalEye WorldRedata; do
