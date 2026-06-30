@@ -26,7 +26,7 @@
         <h1>KILROY</h1>
         <p class="motto">
           Field OS — Linux-compatible, not Linux. This page <strong>runs KILROY</strong>:
-          boot the terminal, type <code>spin quick</code>, download releases for your platform.
+          a working Linux shell with <code>ls</code>, <code>cd</code>, <code>/proc/kilroy_field</code>, and spin-up commands.
         </p>
         <div class="pills" aria-label="Stack">
           <span class="pill">KILROY 1.1.0 Sanctuary</span>
@@ -54,12 +54,13 @@
           <div id="kilroy-terminal" class="terminal" tabindex="0">
             <div id="terminal-output" class="terminal-output" aria-live="polite"></div>
             <label class="terminal-input-row" for="terminal-input">
+              <span id="terminal-prompt" class="terminal-prompt" aria-hidden="true">kilroy@127.0.0.1:~$ </span>
               <input id="terminal-input" type="text" autocomplete="off" spellcheck="false"
-                aria-label="KILROY terminal command" placeholder="" />
+                aria-label="KILROY shell command" placeholder="" />
             </label>
           </div>
         </div>
-        <p class="terminal-hint">Commands: <code>help</code> · <code>spin quick</code> · <code>spin release x86_64</code> · <code>releases</code> · <code>status</code> · <code>field</code></p>
+        <p class="terminal-hint">Linux shell: <code>ls</code> · <code>cd</code> · <code>cat /proc/kilroy_field/status</code> · <code>uname -a</code> · KILROY: <code>spin quick</code> · <code>help</code></p>
       </section>
 
       <section id="spin-up">
@@ -116,6 +117,7 @@
       <a href="https://github.com/ZacharyGeurts">@ZacharyGeurts</a>
     </footer>
   </div>
+  <script src="kilroy-vfs.js"></script>
   <script src="spin-up.js"></script>
   <script src="kilroy-terminal.js"></script>
 </body>
