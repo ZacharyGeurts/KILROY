@@ -122,10 +122,15 @@ pre.cmd {
 .t-ok { color: #4ade80; }
 .t-warn { color: #fbbf24; }
 .terminal-input-row {
-  display: flex; padding: 0.35rem 1rem 0.65rem; border-top: 1px solid rgba(26, 77, 50, 0.35);
+  display: flex; align-items: center; gap: 0;
+  padding: 0.35rem 1rem 0.65rem; border-top: 1px solid rgba(26, 77, 50, 0.35);
+}
+.terminal-prompt {
+  color: var(--accent); font-family: var(--mono); font-size: 0.78rem;
+  white-space: nowrap; flex-shrink: 0; user-select: none;
 }
 .terminal-input-row input {
-  flex: 1; border: none; background: transparent; color: var(--text);
+  flex: 1; min-width: 0; border: none; background: transparent; color: var(--text);
   font-family: var(--mono); font-size: 0.78rem; outline: none; padding: 0.25rem 0;
 }
 .terminal-hint {
