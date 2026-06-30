@@ -4,7 +4,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 NL_ROOT="$(cd "$ROOT/.." && pwd)"
-VER="$(grep -m1 '^KILROY Field OS' "$ROOT/KILROY_VERSION" 2>/dev/null | awk '{print $3}' || echo 1.0.0)"
+VER="$(grep -m1 '^KILROY Field OS' "$ROOT/KILROY_VERSION" 2>/dev/null | awk '{print $4}' || echo 1.1.0)"
 REMOTE="${KILROY_PAGES_REMOTE:-https://github.com/ZacharyGeurts/KILROY.git}"
 
 if [[ -x "$NL_ROOT/scripts/publish-component-pages.sh" ]]; then
