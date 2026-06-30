@@ -26,7 +26,7 @@ The **compat substrate** (linux-7.1.1 lineage) is a boot foundation — like fir
 
 ## Stack (2026)
 
-KILROY owns syscall truth under **Hardware → NEXUS C2 → ZNetwork → Queen → AmmoOS**. Pairs **Grok16 5.1.0** + **AmmoOS 2.0.0-beta3**. See `docs/STACK-INTEGRATION.md`.
+KILROY is the **PC core** (ZNetwork absorbed) under **Hardware → NEXUS C2 → KILROY → AmmoOS → Queen**. AmmoOS desktop uses **AMOURANTHRTX**; Queen is standalone. Load: `./scripts/kilroy-load-os.sh`. Pairs **Grok16 5.2.0** + **AmmoOS 2.0.0-beta3.1**. See `docs/STACK-INTEGRATION.md`.
 
 ## Quick launch
 

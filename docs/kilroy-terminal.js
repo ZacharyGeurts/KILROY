@@ -1,5 +1,5 @@
 /**
- * KILROY terminal — real Queen GNU shell via loopback :9481 (not simulated VFS).
+ * KILROY terminal — Queen GNU shell + auto load OS (stack v2).
  */
 (function () {
   "use strict";
@@ -8,7 +8,8 @@
   var CODENAME = "Sanctuary";
   var QUEEN_BASE = "http://127.0.0.1:9481";
   var PANEL_BASE = "http://127.0.0.1:9477";
-  var REPO = "https://github.com/ZacharyGeurts/KILROY";
+  var DESKTOP_URL = PANEL_BASE + "/field";
+  var QUEEN_BROWSER = QUEEN_BASE + "/world/browser.html";
 
   globalThis.KILROY_QUEEN_API_BASE = QUEEN_BASE;
   globalThis.KILROY_THEME_JSON = "queen-styles-themes.json";
@@ -17,6 +18,8 @@
   var offlineEl = document.getElementById("kilroy-terminal-offline");
   var statusEl = document.getElementById("local-status");
   if (!mountEl) return;
+
+  var loadOsAttempted = false;
 
   function setStatus(html, live) {
     if (!statusEl) return;
@@ -41,30 +44,42 @@
     }
   }
 
-  async function probePanel() {
+  async function probeDesktop() {
     try {
-      var r = await fetch(PANEL_BASE + "/grok-lab", { cache: "no-store", mode: "cors" });
+      var r = await fetch(DESKTOP_URL, { cache: "no-store", mode: "cors" });
       return r.ok;
     } catch (_) {
       return false;
     }
   }
 
+  async function tryLoadOs() {
+    if (loadOsAttempted) return null;
+    loadOsAttempted = true;
+    try {
+      var r = await fetch(QUEEN_BASE + "/api/kilroy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "load_os" }),
+        cache: "no-store",
+      });
+      if (!r.ok) return null;
+      return await r.json();
+    } catch (_) {
+      return null;
+    }
+  }
+
   function offlineHtml(panelUp) {
     var lines = [
-      "<p><strong>Field stack offline</strong> — this page runs a <em>real</em> Linux shell only when Queen is live on your machine.</p>",
+      "<p><strong>Field stack offline</strong> — KILROY v2 loads AmmoOS desktop (AMOURANTHRTX) + Queen standalone browser.</p>",
       "<p>From <code>SG/NewLatest</code>:</p>",
-      "<pre class=\"cmd\">./scripts/start-field-stack.sh</pre>",
-      "<p>Then reload — terminal connects to <code>" + QUEEN_BASE + "/api/queen-terminal</code> (real <code>ls</code>, <code>cd</code>, <code>g16</code>, KILROY tree).</p>",
+      "<pre class=\"cmd\">./scripts/kilroy-load-os.sh</pre>",
+      "<p>Stack: <strong>KILROY</strong> (ZNetwork absorbed) → <strong>AmmoOS</strong> desktop → <strong>Queen</strong> browser.</p>",
     ];
     if (panelUp) {
-      lines.push(
-        "<p>Panel is up: <a href=\"" + PANEL_BASE + "/grok-lab\">Grok Lab</a> — start Queen if :9481 is still down.</p>"
-      );
+      lines.push("<p>Panel up — finish boot: <a href=\"" + DESKTOP_URL + "\">AmmoOS desktop</a></p>");
     }
-    lines.push(
-      "<p>Or open Queen directly: <a href=\"" + QUEEN_BASE + "/world/queen-gnu-terminal-embed.html?cwd=KILROY\">Queen GNU terminal</a></p>"
-    );
     return lines.join("");
   }
 
@@ -75,20 +90,29 @@
     var kr = status.kilroy_root || "";
     var kernel = status.field_kernel || {};
     var loaded = kernel.field_kernel_running || kernel.proc_kilroy_field;
+    var desktopUp = await probeDesktop();
+
+    if (!desktopUp && !loadOsAttempted) {
+      setStatus("Loopback: Queen live — <strong>loading AmmoOS desktop</strong>…", true);
+      await tryLoadOs();
+      desktopUp = await probeDesktop();
+    }
 
     setStatus(
-      "Loopback: <strong>Queen GNU terminal live</strong> · real shell @ " +
-        QUEEN_BASE +
-        (loaded ? " · KILROY kernel loaded" : " · host compat") +
+      "Loopback: <strong>" +
+        (desktopUp ? "AmmoOS desktop live" : "Queen GNU terminal live") +
+        "</strong> · KILROY → AmmoOS (AMOURANTHRTX) → Queen standalone" +
+        (loaded ? " · kernel loaded" : "") +
         " · <a href=\"" +
-        PANEL_BASE +
-        "/grok-lab\">Grok Lab</a>",
+        DESKTOP_URL +
+        "\">desktop</a> · <a href=\"" +
+        QUEEN_BROWSER +
+        "\">Queen</a>",
       true
     );
 
     if (!globalThis.QueenGnuTerminal) {
-      mountEl.innerHTML =
-        "<p class=\"t-warn\">Queen GNU terminal JS failed to load.</p>";
+      mountEl.innerHTML = "<p class=\"t-warn\">Queen GNU terminal JS failed to load.</p>";
       return;
     }
 
@@ -110,7 +134,7 @@
     var chrome = document.querySelector(".terminal-chrome .terminal-title");
     if (chrome) {
       chrome.textContent =
-        "kilroy@127.0.0.1 — KILROY " + VERSION + " " + CODENAME + " · Queen GNU";
+        "kilroy@127.0.0.1 — KILROY " + VERSION + " " + CODENAME + " · load-os ready";
     }
   }
 
@@ -121,17 +145,21 @@
       offlineEl.innerHTML = offlineHtml(panelUp);
     }
     setStatus(
-      "Loopback: <strong>offline</strong> — run <code>./scripts/start-field-stack.sh</code> then reload for real shell",
+      "Loopback: <strong>offline</strong> — run <code>./scripts/kilroy-load-os.sh</code>",
       false
     );
   }
 
   async function boot() {
-    setStatus("Probing Queen GNU terminal @ " + QUEEN_BASE + "…", false);
+    setStatus("Probing KILROY stack @ " + QUEEN_BASE + "…", false);
 
-    var panelUp = await probePanel();
+    var panelUp = false;
+    try {
+      var pr = await fetch(PANEL_BASE + "/grok-lab", { cache: "no-store", mode: "cors" });
+      panelUp = pr.ok;
+    } catch (_) {}
+
     var status = await probeQueen();
-
     if (status) {
       await mountRealTerminal(status);
       return;

@@ -61,9 +61,10 @@
       "id": "queen",
       "name": "Queen Browser",
       "path": "SG/NewLatest/Queen",
-      "role": "Secured browser shell — AmmoOS inside Queen",
+      "role": "Standalone secured browser — sibling to AmmoOS desktop",
       "api": "http://127.0.0.1:9481/api/kilroy",
-      "ammoos": "1.9.9h"
+      "ammoos": "2.0.0-beta3.1",
+      "standalone": true
     }
   ],
   "fieldc_targets": [

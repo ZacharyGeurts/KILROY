@@ -14,9 +14,11 @@
     "grok16": "5.1.0",
     "ammoos": "2.0.0-beta3",
     "ammoos_release": "Grok Expert Review",
-    "queen": "secured shell — AmmoOS inside Queen",
-    "znetwork": "loopback sovereignty — operator is 127.0.0.1",
-    "stack_layers": "hardware → nexus_c2 → znetwork → queen → ammoos",
+    "queen": "standalone secured browser — :9481",
+    "znetwork": "absorbed into KILROY PC core network lane",
+    "ammoos_desktop": "AMOURANTHRTX — http://127.0.0.1:9477/field",
+    "stack_layers": "hardware → nexus_c2 → kilroy → ammoos → queen",
+    "load_os": "scripts/kilroy-load-os.sh",
     "field_one": "canonical — depth zero"
   },
   "compiler": {
