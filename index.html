@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KILROY 1.1.0 Sanctuary — Field OS terminal</title>
-  <meta name="description" content="KILROY Field OS 1.1.0 Sanctuary — interactive terminal, spin up your field node at 127.0.0.1" />
+  <meta name="description" content="KILROY Field OS 1.1.0 Sanctuary — real Queen GNU terminal, spin up your field node at 127.0.0.1" />
   <link rel="canonical" href="https://zacharygeurts.github.io/KILROY/" />
   <link rel="stylesheet" href="kilroy.css" />
+  <link rel="stylesheet" href="queen-styles.css" />
+  <link rel="stylesheet" href="queen-gnu-terminal.css" />
 </head>
 <body>
   <div class="wrap">
@@ -25,12 +27,13 @@
         <p class="eyebrow">Field Die · syscall truth · Field 1 @ 127.0.0.1</p>
         <h1>KILROY</h1>
         <p class="motto">
-          Field OS — Linux-compatible, not Linux. This page <strong>runs KILROY</strong>:
-          a working Linux shell with <code>ls</code>, <code>cd</code>, <code>/proc/kilroy_field</code>, and spin-up commands.
+          Field OS — Linux-compatible, not Linux. This page runs a <strong>real shell</strong>
+          when your field stack is live: Queen GNU terminal on <code>127.0.0.1:9481</code>
+          with actual <code>ls</code>, <code>cd</code>, <code>g16</code>, and <code>/proc/kilroy_field</code>.
         </p>
         <div class="pills" aria-label="Stack">
           <span class="pill">KILROY 1.1.0 Sanctuary</span>
-          <span class="pill">Grok16 5.1.0</span>
+          <span class="pill">Grok16 5.2.0</span>
           <span class="pill">AmmoOS 2.0.0-beta3</span>
           <span class="pill pill--rose">Field One</span>
         </div>
@@ -39,28 +42,26 @@
           <a class="btn" href="https://github.com/ZacharyGeurts/KILROY">Clone on GitHub</a>
           <a class="btn" href="releases.html">All platform releases</a>
         </div>
-        <p class="status-line" id="local-status">Probing loopback field stack…</p>
+        <p class="status-line" id="local-status">Probing Queen GNU terminal…</p>
       </section>
 
       <section id="terminal" aria-label="KILROY terminal">
         <h2>KILROY terminal</h2>
-        <div class="terminal-wrap">
+        <div class="terminal-wrap terminal-wrap--real">
           <div class="terminal-chrome">
             <span class="dot dot--r"></span>
             <span class="dot dot--y"></span>
             <span class="dot dot--g"></span>
             <span class="terminal-title">kilroy@127.0.0.1 — Field OS 1.1.0 Sanctuary</span>
           </div>
-          <div id="kilroy-terminal" class="terminal" tabindex="0">
-            <div id="terminal-output" class="terminal-output" aria-live="polite"></div>
-            <label class="terminal-input-row" for="terminal-input">
-              <span id="terminal-prompt" class="terminal-prompt" aria-hidden="true">kilroy@127.0.0.1:~$ </span>
-              <input id="terminal-input" type="text" autocomplete="off" spellcheck="false"
-                aria-label="KILROY shell command" placeholder="" />
-            </label>
-          </div>
+          <div id="kilroy-terminal-offline" class="terminal-offline" hidden></div>
+          <div id="kilroy-terminal-root" class="terminal-root"></div>
         </div>
-        <p class="terminal-hint">Linux shell: <code>ls</code> · <code>cd</code> · <code>cat /proc/kilroy_field/status</code> · <code>uname -a</code> · KILROY: <code>spin quick</code> · <code>help</code></p>
+        <p class="terminal-hint">
+          Real shell (Queen GNU): <code>ls</code> · <code>cd</code> · <code>cat /proc/kilroy_field/status</code> ·
+          <code>kilroy-status</code> · <code>uname -a</code> ·
+          offline → <code>./scripts/start-field-stack.sh</code>
+        </p>
       </section>
 
       <section id="spin-up">
@@ -117,7 +118,8 @@
       <a href="https://github.com/ZacharyGeurts">@ZacharyGeurts</a>
     </footer>
   </div>
-  <script src="kilroy-vfs.js"></script>
+  <script src="queen-styles.js"></script>
+  <script src="queen-gnu-terminal.js"></script>
   <script src="spin-up.js"></script>
   <script src="kilroy-terminal.js"></script>
 </body>
